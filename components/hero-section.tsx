@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-no-comment-textnodes */
 "use client";
 import { SnakeGame } from "@/components/snake-game/snake-game";
 
