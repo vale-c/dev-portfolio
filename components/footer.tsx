@@ -4,7 +4,7 @@ import GithubIcon from "../public/github.svg";
 
 export function Footer() {
   return (
-    <footer className="fixed bottom-0 left-0 right-0 justify-center space-x-2 p-4 text-[#607B96] border-2 border-b">
+    <footer className="fixed bottom-0 left-0 right-0 justify-center space-x-2 p-4 text-[#607B96] border-2 border-b bg-[#011627]">
       <div className="flex justify-between">
         <div className="text-sm">
           find me on{" "}
