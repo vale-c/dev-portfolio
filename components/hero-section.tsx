@@ -1,5 +1,4 @@
 "use client";
-import React from "react";
 import { SnakeGame } from "@/components/snake-game/snake-game";
 
 export function HeroSection() {

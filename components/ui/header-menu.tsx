@@ -52,7 +52,7 @@ export function HeaderMenu() {
         <NavigationMenuList className="flex space-x-4">
           <NavigationMenuLink
             className="hover:underline underline-offset-8 decoration-[#FEA55F] decoration-3"
-            href="/contact-me"
+            href="mailto:valent95@gmail.com"
           >
             _contact-me
           </NavigationMenuLink>
