@@ -19,6 +19,7 @@ export function SnakeGame() {
   const [speed, setSpeed] = useState(initialSpeed);
   const [fruitsEaten, setFruitsEaten] = useState(0);
   const [foodCount, setFoodCount] = useState(10);
+  const [gameActive, setGameActive] = useState(false);
 
   useEffect(() => {
     if (gameOver) return;
@@ -90,10 +91,10 @@ export function SnakeGame() {
   }, [snake, direction, food, foodCount]);
 
   useEffect(() => {
-    if (gameOver) return;
-    const timer = setInterval(moveSnake, speed); // Use speed for interval
+    if (gameOver || !gameActive) return;
+    const timer = setInterval(moveSnake, speed);
     return () => clearInterval(timer);
-  }, [moveSnake, gameOver, speed]);
+  }, [moveSnake, gameOver, speed, gameActive]);
 
   const startGame = () => {
     setSnake([{ x: 2, y: 2 }]);
@@ -103,10 +104,11 @@ export function SnakeGame() {
     setSpeed(initialSpeed); // Reset speed
     setFruitsEaten(0); // Reset fruits eaten
     setFoodCount(10); // Reset food count to default
+    setGameActive(true);
   };
 
   return (
-    <div className="flex flex-col items-center justify-center md:h-screen">
+    <div className="flex flex-col items-center justify-center">
       <div className="mb-6 flex flex-col lg:flex-row items-center justify-center">
         <div
           className="grid rounded-lg shadow-lg border-2 border-[#43d9ac18]"
@@ -139,7 +141,7 @@ export function SnakeGame() {
             );
           })}
         </div>
-        <div className="bg-[#3c9a7e4a] flex flex-col items-center justify-center mx-4 px-4 py-2 rounded-lg mt-8 md:mt-0">
+        <div className="bg-[#3c9a7e41] flex flex-col items-center justify-center mx-4 px-4 py-2 rounded-lg">
           <span>// use keyboard</span>
           <span>&nbsp; // arrows to play</span>
           <div className="flex flex-col items-center space-y-2 p-6">
@@ -179,7 +181,7 @@ export function SnakeGame() {
           </div>
         </div>
       </div>
-      <div className="flex flex-col md:grid grid-cols-2 md:gap-36">
+      <div className="grid grid-cols-2 gap-36">
         {gameOver
           ? foodCount > 0 && (
               <div className="absolute -mt-4 ml-2 text-center text-bold">
@@ -193,7 +195,9 @@ export function SnakeGame() {
             )}
         <button
           className="bg-[#FEA55F] text-[#011627] p-2 rounded-md mt-4 hover:bg-[#f8976a] transition-colors duration-200"
-          onClick={startGame}
+          onClick={() => {
+            startGame();
+          }}
         >
           start-game
         </button>
