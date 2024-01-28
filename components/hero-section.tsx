@@ -7,12 +7,10 @@ export function HeroSection() {
     <div className="flex flex-col items-center justify-center md:min-h-screen py-12 md:flex-row md:py-0 text-center md:text-start">
       {" "}
       <div className="flex-1">
-        <p className="font-light text-[#E5E9F0] text-xl md:text-2xl">
-          Hi all. I am
-        </p>
-        <h1 className="text-[#E5E9F0] mb-2 text-2xl md:text-4xl">Vale</h1>
-        <p className="text-2xl font-light text-[#4D5BCE]">
-          &gt; Front-end Software Engineer
+        <p className="font-light text-[#E5E9F0] text-2xl">Hi all. I am</p>
+        <h1 className="text-[#E5E9F0] mb-2 text-6xl md:text-4xl">Vale</h1>
+        <p className="text-2xl font-md md:font-light text-[#4D5BCE]">
+          &gt; Front-end Engineer
         </p>
         <p className="mt-12 text-[#607B96] text-sm md:text-md">
           // complete the game to continue
@@ -33,8 +31,7 @@ export function HeroSection() {
           </a>
         </div>
       </div>
-      {/* Placeholder for the game component, placed next to the name section */}
-      <div className="flex justify-center md:ml-24 ml-0">
+      <div className="hidden lg:flex justify-center ml-24">
         <SnakeGame />
       </div>
     </div>
